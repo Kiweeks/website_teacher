@@ -3,21 +3,33 @@
 <head>
 
     <meta charset="UTF-8">
-    {% block title %}{% endblock %}
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_info.css') }}">
 
 </head>
-<body class="body">
+<body class="body" style="background-image: url({{ url_for('static', filename='img/background.jpg') }})">
     <div class="head">
-        <a href=""><p>Вход</p></a>
+        <a class="profile" href="/login"><p>Вход</p></a>
     </div>
+    <br>
+    <br>
     <div class="main_window">
-        <div class="left_menu">
-
+        <div class="left_menu" style="background-image: url({{ url_for('static', filename='img/menubackground.jpg') }})">
+            <p class="text_menu">Меню</p>
+            {% for i in array %}
+                <a class="text-left_menu" href="{{i['link']}}">{{i['title']}}</a>
+            {% endfor %}
         </div>
         <div class="center_window">
             {% block main_content %}{% endblock %}
         </div>
+    <div class="calendar_window_right">
+
+    </div>
     </div>
 
 </body>

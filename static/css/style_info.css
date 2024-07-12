@@ -1,0 +1,35 @@
+.info_text_main_window{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.main_text {
+    font-size: 18px;
+}
+
+.flud_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flud_text * {
+    margin: 0px;
+    margin-bottom: 1px;
+    font-size: 18px;
+}
+
+.quote_text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.quote_text * {
+    margin: 0px;
+    margin-bottom: 1px;
+    font-size: 18px;
+}
