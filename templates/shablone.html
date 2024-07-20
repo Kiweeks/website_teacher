@@ -7,8 +7,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
+    {% block css_file %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_info.css') }}">
 
 </head>
 <body class="body" style="background-image: url({{ url_for('static', filename='img/background.jpg') }})">
@@ -25,7 +25,9 @@
             {% endfor %}
         </div>
         <div class="center_window">
-            {% block main_content %}{% endblock %}
+            <br>
+            {% block main_content %}
+            {% endblock %}
         </div>
     <div class="calendar_window_right">
 

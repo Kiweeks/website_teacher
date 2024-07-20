@@ -1,0 +1,36 @@
+{% extends 'shablone.html' %}
+
+{% block title %}{{name_title}}{% endblock %}
+
+{% block css_file %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/discharg.css') }}">
+{% endblock %}
+
+{% block main_content %}
+    <div class="admin_panel_load">
+        <input id="file" type="file" >
+        <button id="load_file" type="button">Загрузить</button>
+    </div>
+    <div class="main_data_window">
+        {% for file in full_data %}
+            <div class="card_file">
+                <div class="left_data_file">
+                    {% set temp = file.name_file.split(".") %}
+                        {% if temp[-1] == "docx" %}
+                            <img src="{{ url_for('static', filename='img/word_logo_icon.png') }}">
+                        {% elif temp[-1] == 'xlsx' %}
+                            <img src="{{ url_for('static', filename='img/excel.png') }}">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='img/else_file.png') }}">
+                        {% endif%}
+                    <p>{{file.name_file}}</p>
+                    <p class="date_file">{{file.date}}</p>
+                </div>
+                <div class="right_button_file">
+                    <button id="bt_download" type="button" >Скачать</button>
+                    <button id="bt_delete" type="button" >Удалить</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

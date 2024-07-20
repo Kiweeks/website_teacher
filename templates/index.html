@@ -2,8 +2,11 @@
 
 {% block title %}{{name_title}}{% endblock %}
 
+{% block css_file %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_info.css') }}">
+{% endblock %}
+
 {% block main_content %}
-    <br>
     <div class="quote_text">
         <p>
             "Чем дальше я иду, тем больше крепнет
